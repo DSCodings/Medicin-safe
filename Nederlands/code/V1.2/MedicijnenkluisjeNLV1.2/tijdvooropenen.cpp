@@ -1,27 +1,18 @@
-#include "tijdvooropenen.h"
+#include "tijdvooropenen.h" // // zorgt ervoor dat de functies die worden opgeroepen in "tijdvooropenen.h" hierin worden gebruikt.
 #include <String.h>
 
 
 
-TijdStore::TijdStore(void) {
+TijdStore::TijdStore(void) { // de setup, er wordt gezorgt dat er plaats voor is in het geheugen.
   for(int i=0; i< nrOfTijden; i++) {
-    tijden[i] = NULL;
+    tijden[i] = NULL; // allen tijden worden leeg in het geheugen gezet.
   }
 }
 
-/*void SleutelStore::voegHoofdSleutelToe(const char Sleutel[]) {
-  if (sleutels[0] == NULL) {
-    Serial.println("geen rfid tijdstippen gevoenden!");
-  }
-  int l = strlen(Sleutel);
-  sleutels[0] = new char[l+1]; 
-  strcpy(sleutels[0], Sleutel);
-  sleutels[0][l] = 0;
-}*/
 
-void TijdStore::voegtijdstiptoe(const char Tijden[]) {
-  int l = strlen(Tijden);
-  for(int i=0; i< nrOfTijden; i++) {
+void TijdStore::voegtijdstiptoe(const char Tijden[]) { // voor een tijdstip toetevoegen.
+  int l = strlen(Tijden); // voegt de tijd toe
+  for(int i=0; i< nrOfTijden; i++) { // bij het eerste legen plaats die hij vindt.
     //Serial.println(i);
     if (tijden[i] == NULL) {
       tijden[i] = new char[l+1]; 
@@ -32,39 +23,20 @@ void TijdStore::voegtijdstiptoe(const char Tijden[]) {
   }
 }
 
-bool TijdStore::istijdstipgelijk(const char Tijden[]) {
-//  Serial.println("11111111111111");
- // Serial.println(Tijden);
- // Serial.println("2222222222222222222");
-  bool toegang = false;
-  if (nrOfTijden > 0) {
+bool TijdStore::istijdstipgelijk(const char Tijden[]) { // kijkt op het tijdstip gelijk is aan het opgegeven tijdstip.
+  bool toegang = false; // is bij het begin altijd niet waar
+  if (nrOfTijden > 0) { // als de tijden wel gelijk is
       for(int i=0; i< nrOfTijden; i++) {
         if (strcmp(tijden[i], Tijden) == 0) {
-          toegang = true;
+          toegang = true; // als het gelijk is is het waar
         }
       }
   }
-  //Serial.println(toegang);
-  return toegang;
+  return toegang; // stuurt of hij toegang heeft terug,
 }
-/*bool SleutelStore::heeftMastercardToegang(const char Tijden[]) {
- // Serial.println("11111111111111");
-  Serial.println(Sleutel);
-//  Serial.println("2222222222222222222");
-  bool toegang = false;
-  
-      
-  if (strcmp(sleutels[0], Sleutel) == 0) {
-    toegang = true;
-  }
-      
-  
-  Serial.println(toegang);
-  return toegang;
-}*/
 
-void TijdStore::verwijdertijdstip(const char Tijden[]) {
-  if (nrOfTijden > 0) {
+void TijdStore::verwijdertijdstip(const char Tijden[]) { // voor het verwijderen van de tijdstippen
+  if (nrOfTijden > 0) { // kijkt welke tijdstip gelijk is aan het opgegeven tijdstip en verwijderd het.
     for(int i=0; i< nrOfTijden; i++) {
       if (strcmp(tijden[i], Tijden) == 0) {
         delete(tijden[i]);
@@ -75,15 +47,15 @@ void TijdStore::verwijdertijdstip(const char Tijden[]) {
 }
 
 
-char* TijdStore::getkey(int nr) {
+char* TijdStore::getkey(int nr) { // als je een tijdstip wilt ophalen
   char* key = NULL;
   if (nr < nrOfTijden) {
    key =  tijden[nr];
   }
-  return key;
+  return key; // stuurt het tijdstip terug
 }
 
-void TijdStore::printtijden() {
+void TijdStore::printtijden() { // voor de tijden te printen
 
   for(int i=0; i<nrOfTijden; i++) {
     if (tijden[i] != 0) {
@@ -94,15 +66,15 @@ void TijdStore::printtijden() {
   }
 }
 
-String TijdStore::printtijdenlcd() {
+String TijdStore::printtijdenlcd() { // voor de tijden te printen op het lcd.
   String tttijden = " ";
   for(int i=0; i<nrOfTijden; i++) {
     if (tijden[i] != 0) {
-      Serial.println(tijden[i]);
+      Serial.println(tijden[i]); // zorgt dat alles achterelkaar staat
       tttijden =  tttijden + ", " + String(tijden[i]);
     }
 
     
   }
-  return tttijden;
+  return tttijden; // stuurt de tijden terug.
 }
