@@ -9,7 +9,7 @@ SleutelStore::SleutelStore(void) {  // the setup, it makes sure there is room fo
 
 void SleutelStore::voegHoofdSleutelToe(const char Sleutel[]) { // for the master key to add.
   if (sleutels[0] == NULL) { // if there is no free space in the memory for the keys
-    Serial.println("geen rfid sleutel gevoenden!");
+    Serial.println("no rfid key found!");
   }
   int l = strlen(Sleutel); // the key is added.
   sleutels[0] = new char[l+1]; 

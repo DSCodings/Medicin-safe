@@ -1,64 +1,11 @@
 /*
-  --------------------------------------------------------------------------------------------------------------------
-  Medicijnekluisje
-  --------------------------------------------------------------------------------------------------------------------
-  Project Medicijnekluisje voor MSReva in pelt.
-  --------------------------------------------------------------------------------------------------------------------
-  Dit is een project voor het controleren van gebruik van medicijnen.
-
-   @author Sem Boonen en Daan Swinters
-   @creator Daan Swinters
-   @license Verboden te gebruiken zonder toestemming van de auteurs.
-  --------------------------------------------------------------------------------------------------------------------
-  De aansluitingen op arduino(UNO):
-  -----------------------------------------------------------------------------------------
-                MFRC522      Arduino
-                Reader/PCD   Uno/101
-    Signaal     Pin          Pin
-    -----------------------------------------------------------------------------------------
-    RST/Reset   RST          9
-    SPI SS      SDA(SS)      10
-    SPI MOSI    MOSI         11 / ICSP-4
-    SPI MISO    MISO         12 / ICSP-1
-    SPI SCK     SCK          13 / ICSP-3
-
-                LCD_I2C      Arduino
-                Reader/PCD   Uno/101
-    Signaal     Pin          Pin
-    -----------------------------------------------------------------------------------------
-    SPI SS      SDA(SS)      A4
-    SPI SCL     SCL          A5
-
-                Servo
-    Signaal     Pin          Pin
-    -----------------------------------------------------------------------------------------
-    pwm         pwm          3
-
-                Buzzer
-    Signaal     Pin          Pin
-    -----------------------------------------------------------------------------------------
-    pin3        pin3          3
-
-
-                knoppen
-                Uno/101
-    sinnaal     pin
-    ------------------------------------------------------------------------------------------
-    btnboven    7
-    btnonder    5
-    btnliks     4
-    btnrechs    6
-
-   © Sem Boonen en Daan Swinters Medicijnekluisje 2021.
-*/
-/*
   -------------------------------------------------- -------------------------------------------------- ----------------
   medicine locker
   -------------------------------------------------- -------------------------------------------------- ----------------
 
    @author Sem Boonen and Daan Swinters
    @creator Daan Swinters
-   @license Prohibited to use without the permission of the authors.
+   @license Forbidden to use without permission of the authors.
   -------------------------------------------------- -------------------------------------------------- ----------------
   The connections on arduino(UNO):
   -------------------------------------------------- ---------------------------------------
